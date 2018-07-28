@@ -1,6 +1,6 @@
 # Electron - Using preact - No Webpack
 
-To make Electron work with preact I pretty much only have to make sure Babel transforms the JSX before calling in Electron.
+To make Electron work with preact from sratch and with the least extraneous overhead possible I pretty much only have to make sure Babel transforms the JSX before calling in Electron.
 
 On their Getting Started page they have info for that: https://preactjs.com/guide/getting-started
 
@@ -41,7 +41,16 @@ I could just have the HTML use files in "dist". And that should work.
 
 But, can I use classes?
 
+I can. Check out the "clock" example.
+
+## Require paths are weird
+In my index.js I need to require clock.js. If I require './clock.js' it doesn't work at all. Electron tries to import ./src/index.js event though the file in dist/lib still mentions './clock.js'.
+
+I don't get it.
+
 ## Restructurer tous les répertoires
 Il faudrait un répertoire pour mettre les .js liés à Electron et un autre pour tout ce qui est lié au renderer.
 
 Dans un autre projet j'avais appelé ça "views".
+
+Idem, plutôt que "dist" pour les JS transpilé il faudrait utiliser "lib".
