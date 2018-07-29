@@ -44,9 +44,14 @@ But, can I use classes?
 I can. Check out the "clock" example.
 
 ## Require paths are weird
-In my index.js I need to require clock.js. If I require './clock.js' it doesn't work at all. Electron tries to import ./src/index.js event though the file in dist/lib still mentions './clock.js'.
+In my index.js I need to require clock.js. If I require './clock.js' it doesn't work at all. It looks like babel is transforming the paths for some reason.
 
 I don't get it.
+
+## Can I use the material components from Preact?
+I don't think so, they probably use ES6 imports.
+
+In fact the more pressing issue is that you need to import styles. I'd have to do that in my HTML page, it's not impossible, just a little dirty.
 
 ## Restructurer tous les répertoires
 Il faudrait un répertoire pour mettre les .js liés à Electron et un autre pour tout ce qui est lié au renderer.
