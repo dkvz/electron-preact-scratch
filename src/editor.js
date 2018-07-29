@@ -7,6 +7,7 @@ class Editor extends Component {
     super(props);
     this.state.text = '';
     renderer.registerSave(this.getValue.bind(this));
+    renderer.registerSaveObject(this.state);
   }
 
   getValue() {
@@ -16,6 +17,10 @@ class Editor extends Component {
   sendSaveEvent() {
     console.log('Called sendSaveEvent in editor component');
     renderer.sendSave();
+  }
+
+  sendSaveObj() {
+    renderer.sendSaveObj();
   }
 
   render() {
@@ -28,8 +33,9 @@ class Editor extends Component {
         <div style={{padding: '30px'}}>
           {this.state.text}
         </div>
-        <div>
+        <div style={{padding: '30px'}}>
           <button onClick={this.sendSaveEvent}>Save</button>
+          <button onClick={this.sendSaveObj}>Save Obj</button>
         </div>
       </div>
     );
