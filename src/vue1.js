@@ -4,6 +4,11 @@ const renderer = require('../renderer');
 
 class Vue1 extends Component {
 
+  constructor(props) {
+    super(props);
+    this.editor = <Editor />;
+  }
+
   trySaving() {
     renderer.sendSaveObj();
   }
@@ -11,7 +16,7 @@ class Vue1 extends Component {
   render() {
     return (
       <div>
-        <Editor />
+        {this.editor}
         <div style={{'background-color':'orange', padding: '20px'}}>
           STATUSBAR lol
           <a href="#" style={{'float':'right'}} onClick={this.trySaving}>
