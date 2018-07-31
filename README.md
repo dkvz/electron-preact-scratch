@@ -59,3 +59,6 @@ Il faudrait un répertoire pour mettre les .js liés à Electron et un autre pou
 Dans un autre projet j'avais appelé ça "views".
 
 Idem, plutôt que "dist" pour les JS transpilé il faudrait utiliser "lib".
+
+## Les composants doivent avoir une majuscule
+Mes noms de fichier composants sont foireux, par convention ils sont supposés commencer par une majuscule.

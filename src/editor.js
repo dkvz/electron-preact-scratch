@@ -1,5 +1,6 @@
 const { h, render, Component } = require('preact');
 const renderer = require('../renderer.js');
+const Buttonator = require('../dist/buttonator');
 
 class Editor extends Component {
 
@@ -8,6 +9,12 @@ class Editor extends Component {
     this.state.text = '';
     renderer.registerSave(this.getValue.bind(this));
     renderer.registerSaveObject(this.state);
+  }
+
+  componentWillUnmount() {
+    // Unregister the listeners:
+    renderer.unregisterSave();
+    renderer.unregisterSaveObject();
   }
 
   getValue() {
@@ -36,6 +43,7 @@ class Editor extends Component {
         <div style={{padding: '30px'}}>
           <button onClick={this.sendSaveEvent}>Save</button>
           <button onClick={this.sendSaveObj}>Save Obj</button>
+          <Buttonator />
         </div>
       </div>
     );
