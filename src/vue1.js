@@ -10,7 +10,9 @@ class Vue1 extends Component {
     this.state.hideEd = false;
     this.state.meta = {
       title: 'Super titre',
-      userId: 22
+      userId: 22,
+      value1: 'First value',
+      value2: 'Second value'
     };
     this.hideEditor = this.hideEditor.bind(this);
     this.titleChanged = this.titleChanged.bind(this);
@@ -64,6 +66,13 @@ class Vue1 extends Component {
         </div>
         <button onClick={this.hideEditor}>Toggler l'éditeur</button>
         <button onClick={this.changeTheTitle}>Change the title</button>
+        <button onClick={_ => {
+          const st = this.state.meta;
+          st.value2 = 'JE CHANGE';
+          this.setState({meta: st});
+        }}>
+          Change value2 in an object: {this.state.meta.value2}
+        </button>
       </div>
     );
   }
